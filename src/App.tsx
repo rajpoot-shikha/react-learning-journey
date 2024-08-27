@@ -1,3 +1,4 @@
+import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 
 //event handler
@@ -11,6 +12,9 @@ function App() {
 
   return (
     <>
+      <Button color="danger" onClick={() => console.log("clicked")}>
+        Button
+      </Button>
       <ListGroup items={colors} title="Colors" onSelectItem={handleClick} />
     </>
   );
