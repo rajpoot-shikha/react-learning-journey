@@ -2,6 +2,7 @@ import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button/Button";
 import ListGroup from "./components/ListGroup";
+import Like from "./components/Like";
 
 //event handler
 const handleClick = (item: String) => {
@@ -22,6 +23,11 @@ function App() {
         Button
       </Button>
       <ListGroup items={colors} title="Colors" onSelectItem={handleClick} />
+      <Like
+        onClick={() => {
+          console.log("clicked");
+        }}
+      ></Like>
     </>
   );
 }
