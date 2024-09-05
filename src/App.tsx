@@ -14,6 +14,50 @@ function App() {
   const colors = ["Red", "Yellow", "Blue", "Orange"];
   const [alertVisible, setAlertVisibility] = useState(false);
 
+  //ex1 (Managing State): to change the name of player
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      fname: "John",
+      lname: "Smith",
+    },
+  });
+
+  //ex2 (Managing State): to add a topping
+  const [pizza, setPizza] = useState({
+    name: "Spicy Pepperoni",
+    toppings: ["Mushroom"],
+  });
+
+  //ex3 (Managing State): update quantity
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: "Product 1", quantity: 1 },
+      { id: 2, title: "Product 2", quantity: 1 },
+    ],
+  });
+
+  const handleUpdateGame = () => {
+    setGame({ ...game, player: { ...game.player, fname: "Nick" } });
+    console.log(game);
+  };
+
+  const handleAddTopping = () => {
+    setPizza({ ...pizza, toppings: [...pizza.toppings, "Olives"] });
+    console.log(pizza);
+  };
+
+  const handleUpdateQuantity = () => {
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 1 ? { ...item, quantity: 2 } : item
+      ),
+    });
+    console.log(cart);
+  };
+
   return (
     <>
       {alertVisible && (
@@ -28,6 +72,9 @@ function App() {
           console.log("clicked");
         }}
       ></Like>
+      <button onClick={handleUpdateGame}>Update Game</button>
+      <button onClick={handleAddTopping}>Add Topping</button>
+      <button onClick={handleUpdateQuantity}>Update Quantity</button>
     </>
   );
 }
