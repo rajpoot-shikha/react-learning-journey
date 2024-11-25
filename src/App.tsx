@@ -6,6 +6,7 @@ import Like from "./components/Like";
 import ExpandableText from "./components/ExpandableText";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
+import Form from "./components/Form";
 
 //event handler
 const handleClick = (item: String) => {
@@ -95,13 +96,22 @@ function App() {
   //   </>
   // );
 
-  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
-  console.log("cartItems>>>", cartItems);
+  //Learning: sharing data between components
+  // const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+  // console.log("cartItems>>>", cartItems);
+  // return (
+  //   <>
+  //     <div>Learning about sharing data between components</div>
+  //     <NavBar cartItemsCount={cartItems.length}></NavBar>
+  //     <Cart cartItems={cartItems} onClear={() => setCartItems([])}></Cart>
+  //   </>
+  // );
+
+  //learning: Form
   return (
     <>
-      <div>Learning about sharing data between components</div>
-      <NavBar cartItemsCount={cartItems.length}></NavBar>
-      <Cart cartItems={cartItems} onClear={() => setCartItems([])}></Cart>
+      <p>Hi</p>
+      <Form />
     </>
   );
 }
